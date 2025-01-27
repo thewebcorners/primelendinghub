@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../components/style.css'
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Signup = () => {
     const [data, setData] = useState({
         firstName: '',
@@ -11,7 +11,7 @@ const Signup = () => {
         password: '',
         role: ''
     });
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const handleOnChange = (e) => {
         const { name, value } = e.target;
         setData((prev) => ({
