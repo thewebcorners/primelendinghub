@@ -3,8 +3,6 @@ import Signup from './components/Signup'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
-import Header from './components/Header'
-import Footer from './components/Footer'
 const App = () => {
   const myRouter = createBrowserRouter([  
        {path:'/',Component:Login},
