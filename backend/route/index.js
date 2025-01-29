@@ -7,12 +7,13 @@ const logoutController = require('../controller/logout.controller');
 const authToken = require('../middleware/authToken');
 const professionController = require('../controller/profession.controller');
 const leadController = require('../controller/addlead.controller');
+const userDetailsController = require('../controller/userdetails.controller');
 
 router.post('/register',userRegisterController);
 router.post('/send-otp',loginController.sendOTP);
 router.post('/verify-otp',loginController.verifyOTP);
 router.get('/logout',authToken,logoutController);
-
+router.get('/userdetails/:id',userDetailsController);
 //For Profession
 router.post('/addprofession',authToken,professionController.addprofession); //
 router.get('/allprofession',authToken,professionController.listprofession); //
