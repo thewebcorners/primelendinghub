@@ -30,7 +30,7 @@ const Signup = () => {
             return toast.error('All Fields are required')
         }
         try{
-            navigate('/home')
+            navigate('/')
         }catch(error){
 
 
