@@ -1,23 +1,26 @@
-import React from 'react'
+import { useState } from 'react';
 import Signup from './components/Signup'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Login from './components/Login'
 import Dashboard from './components/Dashboard'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import RefrshHandler from './RefrshHandler';
 const App = () => {
-  const myRouter = createBrowserRouter([  
-       {path:'/',Component:Login},
-       {path:'login',Component:Login},
-       {path:'register',Component:Signup},
-       {path:'dashboard',Component:Dashboard}
-  ])
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const PrivateRoute = ({ element }) => {
+    return isAuthenticated ? element : <Navigate to="/login" />
+  }
   return (
-    <div>
-     
-       <RouterProvider router={myRouter}/>
-       
+    <div className="App">
+      <RefrshHandler setIsAuthenticated={setIsAuthenticated} />
+      <Routes>
+        <Route path='/' element={<Navigate to="/login" />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/home' element={<PrivateRoute element={<Dashboard />} />} />
+      </Routes>
     </div>
+
   )
 }
 
