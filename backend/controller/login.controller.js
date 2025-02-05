@@ -93,9 +93,12 @@ const loginController = {
             );
 
             const tokenOptions = {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production', // Only secure in production (HTTPS)
-                sameSite: 'Strict' // Add this for additional CSRF protection
+                httpOnly: true, // Security best practice
+                secure: false,  // Set to true in production (for HTTPS)
+                sameSite: 'Strict'
+              //  httpOnly: true,
+              //  secure: process.env.NODE_ENV === 'production', // Only secure in production (HTTPS)
+               // sameSite: 'Strict' // Add this for additional CSRF protection
             };
 
 

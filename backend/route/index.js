@@ -10,6 +10,7 @@ const leadController = require('../controller/addlead.controller');
 const userDetailsController = require('../controller/userdetails.controller');
 const userUpdateDetailsController = require('../controller/userUpdateDetails.controller');
 const userDeleteController = require('../controller/userDelete.controller');
+const employeeController = require('../controller/employee.controller');
 
 router.post('/register',userRegisterController);
 router.post('/send-otp',loginController.sendOTP);
@@ -24,7 +25,16 @@ router.get('/allprofession',professionController.listprofession); //
 router.put('/updateprofession/:id',authToken,professionController.editprofession);
 router.delete('/deleteprofession/:id',authToken,professionController.deleteprofession);
 
-//For Profession
+//For Lead
 router.post('/addlead',leadController.add); //
+
+
+
+//For Dashboard
+router.post('/signup',employeeController.add);
+router.post('/login',employeeController.login);
+router.get('/user-details',employeeController.profile);
+router.get('/userLogout',employeeController.logout);
+
 
 module.exports = router

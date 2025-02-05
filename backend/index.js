@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv');
 const connectDB = require('./config/connectDB');
 const routes = require('./route/index');
-const routes2 = require('./route/mobileroute');
 dotenv.config()
 
 const app = express();
@@ -15,7 +14,6 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 app.use('/api',routes);
-app.use('/apis',routes2);
 
 const PORT = process.env.PORT || 5000
 connectDB().then(()=>{
