@@ -35,6 +35,6 @@ router.post('/signup',employeeController.add);
 router.post('/login',employeeController.login);
 router.get('/user-details',employeeController.profile);
 router.get('/userLogout',employeeController.logout);
-
+router.get('/getusers',employeeController.getUser);
 
 module.exports = router

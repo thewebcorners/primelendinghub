@@ -95,6 +95,24 @@ const employeeController = {
             res.status(500).json({ message: 'Error in Delete.', error: error.message });
         }
     },
+    getUser: async(req,res)=>{
+        try{
+          const alluser = await employeeModel.find();
+          if(alluser){
+            res.status(200).json({
+                data:alluser,
+                error:false,
+                success:true
+            })
+          }
+        }catch(error){
+           res.status(500).json({
+              message:error.message,
+              error:true,
+              success:false
+           })
+        }
+    },
     logout: async (req, res) => {
         try {
             res.clearCookie("token",{path:'/'})
